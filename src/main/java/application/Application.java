@@ -35,12 +35,12 @@ public class Application {
      
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Ryan Ylitalo Competency Matrix")
-                .description("Spring REST Sample Outlining Ryan Ylitalo's Competencies")
+        		.title("SpringBoot-REST-Swagger")
+                .description("A simple SpringBoot REST Application integrated with Swagger")
                 .termsOfServiceUrl("http://www.byteperceptions.com/")
                 .contact("Ryan Ylitalo")
                 .license("Apache License Version 2.0")
-                .licenseUrl("https://github.com/rylitalo/ryan-ylitalo-competencies/blob/master/LICENSE")
+                .licenseUrl("https://github.com/rylitalo/SpringBoot-REST-Swagger-Example/blob/master/LICENSE")
                 .version("2.0")
                 .build();
     }
