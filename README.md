@@ -12,7 +12,6 @@ Run **gradle build**
 Run **gradle bootRun**
 
 
-
 ## Access Swagger UI
-Open **http://localhost:8080/swagger-ui.html** in a browser.
+After starting the application, open **http://localhost:8080/swagger-ui.html** in a browser.
 
