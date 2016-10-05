@@ -1,5 +1,8 @@
-# Object file
-*.o
+.settings
+.gradle
+.mvn
+build/*
+target
+.classpath
+.project
 
-# Ada Library Information
-*.ali

@@ -1,0 +1,8 @@
+---
+applications:
+- name: ryan-ylitalo-rest-service
+  memory: 256M
+  instances: 1
+  host: rest-service
+  domain: www.byteperceptions.com
+  path: build/libs/ryan-ylitalo-rest-service-0.1.0.jar
