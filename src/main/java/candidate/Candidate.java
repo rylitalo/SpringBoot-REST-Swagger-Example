@@ -1,7 +1,6 @@
 package candidate;
 
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.net.URL;
 
 import org.springframework.util.StringUtils;
 
@@ -24,8 +23,8 @@ public class Candidate {
 
 		if (!StringUtils.isEmpty(onlineResume)) {
 			try {
-				new URI(onlineResume);
-			} catch (URISyntaxException e) {
+				new URL(onlineResume).openConnection();
+			} catch (Exception e) {
 				throw new MisconfiguredCandidateException();
 			}
 		}
