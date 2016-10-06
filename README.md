@@ -15,3 +15,5 @@ Run **gradle bootRun**
 ## Access Swagger UI
 After starting the application, open **http://localhost:8080/swagger-ui.html** in a browser.
 
+## Testing Response
+When testing in Swagger, use the **candidateId = 1** to get a 200 response.  All other Ids will generate a 404.

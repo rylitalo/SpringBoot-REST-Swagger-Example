@@ -1,5 +1,10 @@
 package candidate;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
+import org.springframework.util.StringUtils;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.swagger.annotations.ApiModelProperty;
@@ -8,10 +13,24 @@ public class Candidate {
 
     private final long id;
     private final String name;
+    private final String[] competencies;
+    private final String onlineResume;
+    
 
-    public Candidate(long id, String name) {
+    public Candidate(long id, String name, String[] competencies, String onlineResume) {
         this.id = id;
         this.name = name;
+        this.competencies = competencies;
+
+		if (!StringUtils.isEmpty(onlineResume)) {
+			try {
+				new URI(onlineResume);
+			} catch (URISyntaxException e) {
+				throw new MisconfiguredCandidateException();
+			}
+		}
+        
+        this.onlineResume = onlineResume;
     }
 
     public long getId() {
@@ -23,4 +42,18 @@ public class Candidate {
     public String getName() {
         return name;
     }
+    
+    @JsonProperty(required = false)
+    @ApiModelProperty(notes = "The location of online resume", required = false)
+    public String getOnlineResume() {
+        return onlineResume;
+    }
+    
+    
+    @JsonProperty(required = false)
+    @ApiModelProperty(notes = "The competencies exhibited by this candidate", required = false)
+    public String[] getCompetencies(){
+    	return competencies;
+    }
+    
 }

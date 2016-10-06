@@ -26,7 +26,7 @@ public class Application {
     @Bean
     public Docket newsApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("greetings")
+                .groupName("candidate")
                 .apiInfo(apiInfo())
                 .select()
                  .paths(regex("/candidate.*"))
