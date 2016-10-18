@@ -35,6 +35,7 @@ dependencies {
 }
 
 
+eclipse.project.file.whenMerged { project ->
     
       project.buildCommands = [
         new BuildCommand('org.eclipse.wst.common.project.facet.core.builder'),
