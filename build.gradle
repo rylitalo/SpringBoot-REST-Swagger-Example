@@ -41,13 +41,15 @@ eclipse.project.file.whenMerged { project ->
         new BuildCommand('org.eclipse.wst.common.project.facet.core.builder'),
         new BuildCommand('org.eclipse.jdt.core.javabuilder'),
         new BuildCommand('org.springframework.ide.eclipse.core.springbuilder'),
-        new BuildCommand('org.eclipse.buildship.core.gradleprojectbuilder')
+        //TODO: This doesn't generate a config file in .settings directory like it should
+        //new BuildCommand('org.eclipse.buildship.core.gradleprojectbuilder')
      ]
                  
     project.natures = [
         'org.springframework.ide.eclipse.core.springnature',
         'org.eclipse.jdt.core.javanature',
         'org.eclipse.wst.common.project.facet.core.nature',
-        'org.eclipse.buildship.core.gradleprojectnature',
+		//TODO: This doesn't generate a config file in .settings directory like it should        
+        //'org.eclipse.buildship.core.gradleprojectnature'
     ]
 }
