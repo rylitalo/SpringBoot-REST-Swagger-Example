@@ -2,6 +2,7 @@
 .gradle
 .mvn
 build/*
+bin/*
 target
 .classpath
 
