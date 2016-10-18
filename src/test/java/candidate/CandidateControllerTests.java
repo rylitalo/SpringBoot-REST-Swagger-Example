@@ -26,6 +26,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -46,9 +47,21 @@ public class CandidateControllerTests {
     }
     
     @Test
-    public void id2Returns404Error() throws Exception {
+    public void id2Returns400Error() throws Exception {
 
-        this.mockMvc.perform(get("/candidate/2")).andDo(print()).andExpect(status().is4xxClientError());
+        this.mockMvc.perform(get("/candidate/2")).andDo(print()).andExpect(status().is(HttpStatus.BAD_REQUEST.value()));
+    }
+    
+    @Test
+    public void id3Returns500Error() throws Exception {
+
+        this.mockMvc.perform(get("/candidate/3")).andDo(print()).andExpect(status().is(HttpStatus.INTERNAL_SERVER_ERROR.value()));
+    }
+    
+    @Test
+    public void id4Returns404Error() throws Exception {
+
+        this.mockMvc.perform(get("/candidate/4")).andDo(print()).andExpect(status().is(HttpStatus.NOT_FOUND.value()));
     }
 
 }
