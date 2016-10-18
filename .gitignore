@@ -3,5 +3,6 @@
 .mvn
 build/*
 target
+.classpath
 
 /build/
