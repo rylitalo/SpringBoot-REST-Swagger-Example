@@ -1,4 +1,4 @@
-package candidate;
+package com.byteperceptions.candidate;
 /*
  * Copyright 2016 Ryan Ylitalo and BytePerceptions LLC. 
  *
