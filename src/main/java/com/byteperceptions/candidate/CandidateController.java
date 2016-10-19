@@ -30,6 +30,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 @RestController
+@RequestMapping("/candidates")
 public class CandidateController {
 
     private CandidateRepository repository;
@@ -40,7 +41,7 @@ public class CandidateController {
 	}
 	
 	@ApiOperation(value = "getAllCandidates", nickname = "getAllCandidates")
-	@RequestMapping(method = RequestMethod.GET,  path="/candidates")
+	@RequestMapping(method = RequestMethod.GET)
 	@ApiResponses(value = { 
 			@ApiResponse(code = 200, message = "Success", response = Candidate.class),
 			@ApiResponse(code = 400, message = "Bad Request"),
@@ -51,7 +52,7 @@ public class CandidateController {
 	}
 	
 	@ApiOperation(value = "addCandidate", nickname = "addCandidate")
-	@RequestMapping(method = RequestMethod.POST,  path="/candidates")
+	@RequestMapping(method = RequestMethod.POST)
 	@ApiResponses(value = { 
 			@ApiResponse(code = 200, message = "Success", response = Candidate.class),
 			@ApiResponse(code = 400, message = "Bad Request"),
@@ -63,7 +64,7 @@ public class CandidateController {
 
 	
 	@ApiOperation(value = "getCandidate", nickname = "getCandidate")
-    @RequestMapping(method = RequestMethod.GET, path="/candidates/{id}")
+    @RequestMapping(method = RequestMethod.GET, path="/{id}")
     @ApiResponses(value = { 
             @ApiResponse(code = 200, message = "Success", response = Candidate.class),
             @ApiResponse(code = 400, message = "Bad Request"),
