@@ -1,6 +1,6 @@
 package candidate;
 /*
- * Copyright 2016 the original author or authors.
+ * Copyright 2016 Ryan Ylitalo and BytePerceptions LLC. 
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,8 +14,6 @@ package candidate;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -26,12 +24,11 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpStatus;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes=application.Application.class)
+@SpringBootTest(classes=com.byteperceptions.Application.class)
 @AutoConfigureMockMvc
 public class CandidateControllerTests {
 
@@ -42,26 +39,8 @@ public class CandidateControllerTests {
     @Test
     public void id1ReturnsRyanYlitalo() throws Exception {
 
-        this.mockMvc.perform(get("/candidate/1")).andDo(print()).andExpect(status().isOk())
+        this.mockMvc.perform(get("/candidates/1")).andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value("Ryan Ylitalo"));
-    }
-    
-    @Test
-    public void id2Returns400Error() throws Exception {
-
-        this.mockMvc.perform(get("/candidate/2")).andDo(print()).andExpect(status().is(HttpStatus.BAD_REQUEST.value()));
-    }
-    
-    @Test
-    public void id3Returns500Error() throws Exception {
-
-        this.mockMvc.perform(get("/candidate/3")).andDo(print()).andExpect(status().is(HttpStatus.INTERNAL_SERVER_ERROR.value()));
-    }
-    
-    @Test
-    public void id4Returns404Error() throws Exception {
-
-        this.mockMvc.perform(get("/candidate/4")).andDo(print()).andExpect(status().is(HttpStatus.NOT_FOUND.value()));
     }
 
 }

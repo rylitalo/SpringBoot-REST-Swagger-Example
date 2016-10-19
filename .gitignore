@@ -6,5 +6,7 @@ bin/*
 target
 .classpath
 .project
+.springBeans
 
 /build/
+/bin/
