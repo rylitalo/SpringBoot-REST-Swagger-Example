@@ -32,9 +32,13 @@ import io.swagger.annotations.ApiResponses;
 @RestController
 public class CandidateController {
 
-	@Autowired
     private CandidateRepository repository;
 
+    @Autowired
+	public CandidateController(CandidateRepository repository){
+		this.repository = repository;
+	}
+	
 	@ApiOperation(value = "getAllCandidates", nickname = "getAllCandidates")
 	@RequestMapping(method = RequestMethod.GET,  path="/candidates")
 	@ApiResponses(value = { 
